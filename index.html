@@ -78,4 +78,68 @@
     </div>
 </body>
 
+<section id="feedback">
+    <h2>Feedback</h2>
+    <p>We would love to hear your thoughts. Please provide your feedback below:</p>
+    <form id="feedback-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+	<style>
+	#feedback-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+}
+
+#feedback-form label {
+    margin-top: 10px;
+}
+
+#feedback-form input,
+#feedback-form textarea {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
+
+#feedback-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+#feedback-form button:hover {
+    background-color: #0056b3;
+}
+    </style>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const feedbackForm = document.getElementById("feedback-form");
+        const thankYouMessage = document.createElement("p");
+        thankYouMessage.textContent = "Thank you for your feedback!";
+        thankYouMessage.style.display = "none";
+        feedbackForm.appendChild(thankYouMessage);
+
+        feedbackForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            // You can customize the submission logic here (e.g., sending the form data to a server)
+            
+            // Show the thank you message and reset the form
+            thankYouMessage.style.display = "block";
+            feedbackForm.reset();
+        });
+    });
+</script>
+
 </html>
